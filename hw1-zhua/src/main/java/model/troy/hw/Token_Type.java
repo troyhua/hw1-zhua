@@ -10,10 +10,11 @@ import org.apache.uima.cas.FeatureStructure;
 import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** Token should be the smallest unit of a document splitted by white space and punctuations.
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * @generated */
-public class Token_Type extends BaseType_Type {
+public class Token_Type extends BaseAnnotationType_Type {
   /** @generated */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}

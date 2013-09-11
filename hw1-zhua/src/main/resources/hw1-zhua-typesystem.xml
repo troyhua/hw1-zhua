@@ -6,51 +6,89 @@
     <vendor>Troy Hua(zhua)</vendor>
   <types>
     <typeDescription>
-      <name>model.troy.hw.BaseType</name>
-      <description/>
+      <name>model.troy.hw.BaseAnnotationType</name>
+      <description>This is the base class for all annotation types in the system. It has two additional features, source and confidence. Source is setted by the annotator to know where the annotation is from. Confidence is a measurement how confident the annotator is when generating the annotation. All annotation types in the system should be a subclass of this one.</description>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
         <featureDescription>
           <name>source</name>
-          <description/>
+          <description>A string feature for the annotator to provide information so that we can directly get where the annotation is generated.</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>
         </featureDescription>
         <featureDescription>
           <name>confidence</name>
-          <description/>
+          <description>Annotator should provide a confidence score in this feature for every annotation type.</description>
           <rangeTypeName>uima.cas.Double</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
       <name>model.troy.hw.Question</name>
-      <description/>
-      <supertypeName>model.troy.hw.BaseType</supertypeName>
-      </typeDescription>
+      <description>Question is the type for annotating questions in the document. It also stores the token information and NGram information.
+</description>
+      <supertypeName>model.troy.hw.BaseAnnotationType</supertypeName>
+      <features>
+        <featureDescription>
+          <name>tokenArray</name>
+          <description>This stores all the tokens in this question.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>model.troy.hw.Token</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
+        </featureDescription>
+        <featureDescription>
+          <name>nGramArray</name>
+          <description>This stores all the NGram in this question. Because we do not need to output NGram with different length separatedly, there are not separated lists for different length of NGram. And a scoring component should consider all the NGrams and have different weights inside the component, so we do not provide separated lists here.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>model.troy.hw.NGram</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
+        </featureDescription>
+      </features>
+    </typeDescription>
   <typeDescription>
       <name>model.troy.hw.Answer</name>
-      <description/>
-      <supertypeName>model.troy.hw.BaseType</supertypeName>
+      <description>Answer is the type for annotating answers in the document. Each instance represents one answer. It also stores the token and NGram information as well as if the answer is correct or not. Although we cannot directly get the corresponding question from this type, the scoring component should look into the Block type which contains answers and corresponding question.
+</description>
+      <supertypeName>model.troy.hw.BaseAnnotationType</supertypeName>
       <features>
         <featureDescription>
           <name>isCorrect</name>
-          <description/>
+          <description>Whether the answer is correct for the corresponding question.
+</description>
           <rangeTypeName>uima.cas.Boolean</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>tokenArray</name>
+          <description>This stores all the tokens in this answer.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>model.troy.hw.Token</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
+        </featureDescription>
+        <featureDescription>
+          <name>nGramArray</name>
+          <description> This stores all the NGrams in this answer.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>model.troy.hw.NGram</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
       <name>model.troy.hw.Token</name>
-      <description/>
-      <supertypeName>model.troy.hw.BaseType</supertypeName>
+      <description>Token should be the smallest unit of a document splitted by white space and punctuations.
+</description>
+      <supertypeName>model.troy.hw.BaseAnnotationType</supertypeName>
     </typeDescription>
     <typeDescription>
       <name>model.troy.hw.NGram</name>
       <description/>
-      <supertypeName>model.troy.hw.BaseType</supertypeName>
+      <supertypeName>model.troy.hw.BaseAnnotationType</supertypeName>
       <features>
         <featureDescription>
-          <name>elements</name>
+          <name>tokenArray</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
           <elementType>model.troy.hw.Token</elementType>
@@ -60,19 +98,29 @@
     </typeDescription>
     <typeDescription>
       <name>model.troy.hw.AnswerScore</name>
-      <description/>
+      <description>It is an answer-score pair.
+
+</description>
       <supertypeName>model.troy.hw.BaseType</supertypeName>
       <features>
         <featureDescription>
           <name>answer</name>
-          <description/>
+          <description>The answer for the score.
+</description>
           <rangeTypeName>model.troy.hw.Answer</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>score</name>
+          <description>The score to the answer.
+</description>
+          <rangeTypeName>uima.cas.Double</rangeTypeName>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
       <name>model.troy.hw.Evaluation</name>
-      <description/>
+      <description>An evaluation component should take a ScoreScheme as input and output an Evaluation instance. This class contains the evaluation metric score and other parameters regarding different measurements. For other evaluation metrics, Evaluation class can be extended to add more metrics.
+</description>
       <supertypeName>model.troy.hw.BaseType</supertypeName>
       <features>
         <featureDescription>
@@ -84,6 +132,76 @@
           <name>precision</name>
           <description>The precision at N.</description>
           <rangeTypeName>uima.cas.Double</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>rawScore</name>
+          <description>The original score from a scoring component.
+</description>
+          <rangeTypeName>model.troy.hw.ScoreScheme</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+  <typeDescription>
+      <name>model.troy.hw.Block</name>
+      <description>Block contains one question and an array of answers corresponding to this question. It is a unit of a whole instance of raw data of the task.
+</description>
+      <supertypeName>model.troy.hw.BaseAnnotationType</supertypeName>
+      <features>
+        <featureDescription>
+          <name>question</name>
+          <description> The question in this text block.
+</description>
+          <rangeTypeName>model.troy.hw.Question</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>answerArray</name>
+          <description> An array of all answers in this text block.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+        <elementType>model.troy.hw.Answer</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>model.troy.hw.BaseType</name>
+      <description>The base type of all non-annotation types. Fields are similar to BaseAnnotationType.
+</description>
+      <supertypeName>uima.cas.TOP</supertypeName>
+      <features>
+        <featureDescription>
+          <name>source</name>
+          <description>A string feature for the annotator to provide information so that we can directly get where the annotation is generated.
+</description>
+          <rangeTypeName>uima.cas.String</rangeTypeName>
+        </featureDescription>
+        <featureDescription>
+          <name>confidence</name>
+          <description>Annotators should provide a confidence score in this feature for every type.
+</description>
+          <rangeTypeName>uima.cas.Float</rangeTypeName>
+        </featureDescription>
+      </features>
+    </typeDescription>
+    <typeDescription>
+      <name>model.troy.hw.ScoreScheme</name>
+      <description>ScoreScheme should be the output of a scoring component. It contains a set of whole raw data and an array of scores for all answers.
+</description>
+      <supertypeName>model.troy.hw.BaseType</supertypeName>
+      <features>
+        <featureDescription>
+          <name>rawData</name>
+          <description>The whole set of data.
+</description>
+          <rangeTypeName>model.troy.hw.Block</rangeTypeName>
+        </featureDescription>
+      <featureDescription>
+          <name>scoreArray</name>
+          <description>The array of scores for all the answers in the data.
+</description>
+          <rangeTypeName>uima.cas.FSArray</rangeTypeName>
+          <elementType>model.troy.hw.AnswerScore</elementType>
+          <multipleReferencesAllowed>true</multipleReferencesAllowed>
         </featureDescription>
       </features>
     </typeDescription>

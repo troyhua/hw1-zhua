@@ -11,10 +11,10 @@ import org.apache.uima.jcas.cas.FSArray;
 
 
 /** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * XML source: /Users/troy/git/hw1-zhua/hw1-zhua/src/main/resources/hw1-zhua-typesystem.xml
  * @generated */
-public class NGram extends BaseType {
+public class NGram extends BaseAnnotationType {
   /** @generated
    * @ordered 
    */
@@ -63,37 +63,37 @@ public class NGram extends BaseType {
  
     
   //*--------------*
-  //* Feature: elements
+  //* Feature: tokenArray
 
-  /** getter for elements - gets 
+  /** getter for tokenArray - gets 
    * @generated */
-  public FSArray getElements() {
-    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_elements == null)
-      jcasType.jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements)));}
+  public FSArray getTokenArray() {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_tokenArray == null)
+      jcasType.jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    return (FSArray)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray)));}
     
-  /** setter for elements - sets  
+  /** setter for tokenArray - sets  
    * @generated */
-  public void setElements(FSArray v) {
-    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_elements == null)
-      jcasType.jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    jcasType.ll_cas.ll_setRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements, jcasType.ll_cas.ll_getFSRef(v));}    
+  public void setTokenArray(FSArray v) {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_tokenArray == null)
+      jcasType.jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    jcasType.ll_cas.ll_setRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray, jcasType.ll_cas.ll_getFSRef(v));}    
     
-  /** indexed getter for elements - gets an indexed value - 
+  /** indexed getter for tokenArray - gets an indexed value - 
    * @generated */
-  public Token getElements(int i) {
-    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_elements == null)
-      jcasType.jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements), i);
-    return (Token)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements), i)));}
+  public Token getTokenArray(int i) {
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_tokenArray == null)
+      jcasType.jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray), i);
+    return (Token)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray), i)));}
 
-  /** indexed setter for elements - sets an indexed value - 
+  /** indexed setter for tokenArray - sets an indexed value - 
    * @generated */
-  public void setElements(int i, Token v) { 
-    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_elements == null)
-      jcasType.jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements), i);
-    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_elements), i, jcasType.ll_cas.ll_getFSRef(v));}
+  public void setTokenArray(int i, Token v) { 
+    if (NGram_Type.featOkTst && ((NGram_Type)jcasType).casFeat_tokenArray == null)
+      jcasType.jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    jcasType.jcas.checkArrayBounds(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray), i);
+    jcasType.ll_cas.ll_setRefArrayValue(jcasType.ll_cas.ll_getRefValue(addr, ((NGram_Type)jcasType).casFeatCode_tokenArray), i, jcasType.ll_cas.ll_getFSRef(v));}
   }
 
     

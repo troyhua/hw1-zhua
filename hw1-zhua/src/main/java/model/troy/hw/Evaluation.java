@@ -9,8 +9,9 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** An evaluation component should take a ScoreScheme as input and output an Evaluation instance. This class contains the evaluation metric score and other parameters regarding different measurements. For other evaluation metrics, Evaluation class can be extended to add more metrics.
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * XML source: /Users/troy/git/hw1-zhua/hw1-zhua/src/main/resources/hw1-zhua-typesystem.xml
  * @generated */
 public class Evaluation extends BaseType {
@@ -44,14 +45,6 @@ public class Evaluation extends BaseType {
     super(jcas);
     readObject();   
   } 
-
-  /** @generated */  
-  public Evaluation(JCas jcas, int begin, int end) {
-    super(jcas);
-    setBegin(begin);
-    setEnd(end);
-    readObject();
-  }   
 
   /** <!-- begin-user-doc -->
     * Write your own initialization here
@@ -95,6 +88,26 @@ public class Evaluation extends BaseType {
     if (Evaluation_Type.featOkTst && ((Evaluation_Type)jcasType).casFeat_precision == null)
       jcasType.jcas.throwFeatMissing("precision", "model.troy.hw.Evaluation");
     jcasType.ll_cas.ll_setDoubleValue(addr, ((Evaluation_Type)jcasType).casFeatCode_precision, v);}    
+   
+    
+  //*--------------*
+  //* Feature: rawScore
+
+  /** getter for rawScore - gets The original score from a scoring component.
+
+   * @generated */
+  public ScoreScheme getRawScore() {
+    if (Evaluation_Type.featOkTst && ((Evaluation_Type)jcasType).casFeat_rawScore == null)
+      jcasType.jcas.throwFeatMissing("rawScore", "model.troy.hw.Evaluation");
+    return (ScoreScheme)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((Evaluation_Type)jcasType).casFeatCode_rawScore)));}
+    
+  /** setter for rawScore - sets The original score from a scoring component.
+ 
+   * @generated */
+  public void setRawScore(ScoreScheme v) {
+    if (Evaluation_Type.featOkTst && ((Evaluation_Type)jcasType).casFeat_rawScore == null)
+      jcasType.jcas.throwFeatMissing("rawScore", "model.troy.hw.Evaluation");
+    jcasType.ll_cas.ll_setRefValue(addr, ((Evaluation_Type)jcasType).casFeatCode_rawScore, jcasType.ll_cas.ll_getFSRef(v));}    
   }
 
     

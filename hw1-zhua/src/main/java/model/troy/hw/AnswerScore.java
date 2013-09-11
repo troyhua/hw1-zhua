@@ -9,8 +9,10 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** It is an answer-score pair.
+
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * XML source: /Users/troy/git/hw1-zhua/hw1-zhua/src/main/resources/hw1-zhua-typesystem.xml
  * @generated */
 public class AnswerScore extends BaseType {
@@ -45,14 +47,6 @@ public class AnswerScore extends BaseType {
     readObject();   
   } 
 
-  /** @generated */  
-  public AnswerScore(JCas jcas, int begin, int end) {
-    super(jcas);
-    setBegin(begin);
-    setEnd(end);
-    readObject();
-  }   
-
   /** <!-- begin-user-doc -->
     * Write your own initialization here
     * <!-- end-user-doc -->
@@ -64,19 +58,41 @@ public class AnswerScore extends BaseType {
   //*--------------*
   //* Feature: answer
 
-  /** getter for answer - gets 
+  /** getter for answer - gets The answer for the score.
+
    * @generated */
   public Answer getAnswer() {
     if (AnswerScore_Type.featOkTst && ((AnswerScore_Type)jcasType).casFeat_answer == null)
       jcasType.jcas.throwFeatMissing("answer", "model.troy.hw.AnswerScore");
     return (Answer)(jcasType.ll_cas.ll_getFSForRef(jcasType.ll_cas.ll_getRefValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_answer)));}
     
-  /** setter for answer - sets  
+  /** setter for answer - sets The answer for the score.
+ 
    * @generated */
   public void setAnswer(Answer v) {
     if (AnswerScore_Type.featOkTst && ((AnswerScore_Type)jcasType).casFeat_answer == null)
       jcasType.jcas.throwFeatMissing("answer", "model.troy.hw.AnswerScore");
     jcasType.ll_cas.ll_setRefValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_answer, jcasType.ll_cas.ll_getFSRef(v));}    
+   
+    
+  //*--------------*
+  //* Feature: score
+
+  /** getter for score - gets The score to the answer.
+
+   * @generated */
+  public double getScore() {
+    if (AnswerScore_Type.featOkTst && ((AnswerScore_Type)jcasType).casFeat_score == null)
+      jcasType.jcas.throwFeatMissing("score", "model.troy.hw.AnswerScore");
+    return jcasType.ll_cas.ll_getDoubleValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_score);}
+    
+  /** setter for score - sets The score to the answer.
+ 
+   * @generated */
+  public void setScore(double v) {
+    if (AnswerScore_Type.featOkTst && ((AnswerScore_Type)jcasType).casFeat_score == null)
+      jcasType.jcas.throwFeatMissing("score", "model.troy.hw.AnswerScore");
+    jcasType.ll_cas.ll_setDoubleValue(addr, ((AnswerScore_Type)jcasType).casFeatCode_score, v);}    
   }
 
     

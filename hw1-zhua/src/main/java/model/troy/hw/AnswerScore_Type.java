@@ -12,8 +12,10 @@ import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** It is an answer-score pair.
+
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * @generated */
 public class AnswerScore_Type extends BaseType_Type {
   /** @generated */
@@ -60,6 +62,24 @@ public class AnswerScore_Type extends BaseType_Type {
     ll_cas.ll_setRefValue(addr, casFeatCode_answer, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_score;
+  /** @generated */
+  final int     casFeatCode_score;
+  /** @generated */ 
+  public double getScore(int addr) {
+        if (featOkTst && casFeat_score == null)
+      jcas.throwFeatMissing("score", "model.troy.hw.AnswerScore");
+    return ll_cas.ll_getDoubleValue(addr, casFeatCode_score);
+  }
+  /** @generated */    
+  public void setScore(int addr, double v) {
+        if (featOkTst && casFeat_score == null)
+      jcas.throwFeatMissing("score", "model.troy.hw.AnswerScore");
+    ll_cas.ll_setDoubleValue(addr, casFeatCode_score, v);}
+    
+  
 
 
 
@@ -72,6 +92,10 @@ public class AnswerScore_Type extends BaseType_Type {
  
     casFeat_answer = jcas.getRequiredFeatureDE(casType, "answer", "model.troy.hw.Answer", featOkTst);
     casFeatCode_answer  = (null == casFeat_answer) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_answer).getCode();
+
+ 
+    casFeat_score = jcas.getRequiredFeatureDE(casType, "score", "uima.cas.Double", featOkTst);
+    casFeatCode_score  = (null == casFeat_score) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_score).getCode();
 
   }
 }

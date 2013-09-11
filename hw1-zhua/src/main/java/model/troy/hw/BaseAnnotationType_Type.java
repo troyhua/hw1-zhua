@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Sun Sep 08 01:17:10 EDT 2013 */
+/* First created by JCasGen Tue Sep 10 11:38:53 EDT 2013 */
 package model.troy.hw;
 
 import org.apache.uima.jcas.JCas;
@@ -11,15 +11,12 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
-import org.apache.uima.jcas.cas.TOP_Type;
-
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
-/** The base type of all non-annotation types. Fields are similar to BaseAnnotationType.
-
+/** This is the base class for all annotation types in the system. It has two additional features, source and confidence. Source is setted by the annotator to know where the annotation is from. Confidence is a measurement how confident the annotator is when generating the annotation. All annotation types in the system should be a subclass of this one.
  * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * @generated */
-public class BaseType_Type extends TOP_Type {
+public class BaseAnnotationType_Type extends Annotation_Type {
   /** @generated */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
@@ -27,25 +24,25 @@ public class BaseType_Type extends TOP_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (BaseType_Type.this.useExistingInstance) {
+  			 if (BaseAnnotationType_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = BaseType_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = BaseAnnotationType_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new BaseType(addr, BaseType_Type.this);
-  			   BaseType_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new BaseAnnotationType(addr, BaseAnnotationType_Type.this);
+  			   BaseAnnotationType_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new BaseType(addr, BaseType_Type.this);
+        } else return new BaseAnnotationType(addr, BaseAnnotationType_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = BaseType.typeIndexID;
+  public final static int typeIndexID = BaseAnnotationType.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("model.troy.hw.BaseType");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("model.troy.hw.BaseAnnotationType");
  
   /** @generated */
   final Feature casFeat_source;
@@ -54,13 +51,13 @@ public class BaseType_Type extends TOP_Type {
   /** @generated */ 
   public String getSource(int addr) {
         if (featOkTst && casFeat_source == null)
-      jcas.throwFeatMissing("source", "model.troy.hw.BaseType");
+      jcas.throwFeatMissing("source", "model.troy.hw.BaseAnnotationType");
     return ll_cas.ll_getStringValue(addr, casFeatCode_source);
   }
   /** @generated */    
   public void setSource(int addr, String v) {
         if (featOkTst && casFeat_source == null)
-      jcas.throwFeatMissing("source", "model.troy.hw.BaseType");
+      jcas.throwFeatMissing("source", "model.troy.hw.BaseAnnotationType");
     ll_cas.ll_setStringValue(addr, casFeatCode_source, v);}
     
   
@@ -70,16 +67,16 @@ public class BaseType_Type extends TOP_Type {
   /** @generated */
   final int     casFeatCode_confidence;
   /** @generated */ 
-  public float getConfidence(int addr) {
+  public double getConfidence(int addr) {
         if (featOkTst && casFeat_confidence == null)
-      jcas.throwFeatMissing("confidence", "model.troy.hw.BaseType");
-    return ll_cas.ll_getFloatValue(addr, casFeatCode_confidence);
+      jcas.throwFeatMissing("confidence", "model.troy.hw.BaseAnnotationType");
+    return ll_cas.ll_getDoubleValue(addr, casFeatCode_confidence);
   }
   /** @generated */    
-  public void setConfidence(int addr, float v) {
+  public void setConfidence(int addr, double v) {
         if (featOkTst && casFeat_confidence == null)
-      jcas.throwFeatMissing("confidence", "model.troy.hw.BaseType");
-    ll_cas.ll_setFloatValue(addr, casFeatCode_confidence, v);}
+      jcas.throwFeatMissing("confidence", "model.troy.hw.BaseAnnotationType");
+    ll_cas.ll_setDoubleValue(addr, casFeatCode_confidence, v);}
     
   
 
@@ -87,7 +84,7 @@ public class BaseType_Type extends TOP_Type {
 
   /** initialize variables to correspond with Cas Type and Features
 	* @generated */
-  public BaseType_Type(JCas jcas, Type casType) {
+  public BaseAnnotationType_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
@@ -96,7 +93,7 @@ public class BaseType_Type extends TOP_Type {
     casFeatCode_source  = (null == casFeat_source) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_source).getCode();
 
  
-    casFeat_confidence = jcas.getRequiredFeatureDE(casType, "confidence", "uima.cas.Float", featOkTst);
+    casFeat_confidence = jcas.getRequiredFeatureDE(casType, "confidence", "uima.cas.Double", featOkTst);
     casFeatCode_confidence  = (null == casFeat_confidence) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_confidence).getCode();
 
   }

@@ -7,14 +7,18 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
+import org.apache.uima.jcas.cas.TOP;
+
+
 import org.apache.uima.jcas.tcas.Annotation;
 
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** The base type of all non-annotation types. Fields are similar to BaseAnnotationType.
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * XML source: /Users/troy/git/hw1-zhua/hw1-zhua/src/main/resources/hw1-zhua-typesystem.xml
  * @generated */
-public class BaseType extends Annotation {
+public class BaseType extends TOP {
   /** @generated
    * @ordered 
    */
@@ -46,14 +50,6 @@ public class BaseType extends Annotation {
     readObject();   
   } 
 
-  /** @generated */  
-  public BaseType(JCas jcas, int begin, int end) {
-    super(jcas);
-    setBegin(begin);
-    setEnd(end);
-    readObject();
-  }   
-
   /** <!-- begin-user-doc -->
     * Write your own initialization here
     * <!-- end-user-doc -->
@@ -65,14 +61,16 @@ public class BaseType extends Annotation {
   //*--------------*
   //* Feature: source
 
-  /** getter for source - gets 
+  /** getter for source - gets A string feature for the annotator to provide information so that we can directly get where the annotation is generated.
+
    * @generated */
   public String getSource() {
     if (BaseType_Type.featOkTst && ((BaseType_Type)jcasType).casFeat_source == null)
       jcasType.jcas.throwFeatMissing("source", "model.troy.hw.BaseType");
     return jcasType.ll_cas.ll_getStringValue(addr, ((BaseType_Type)jcasType).casFeatCode_source);}
     
-  /** setter for source - sets  
+  /** setter for source - sets A string feature for the annotator to provide information so that we can directly get where the annotation is generated.
+ 
    * @generated */
   public void setSource(String v) {
     if (BaseType_Type.featOkTst && ((BaseType_Type)jcasType).casFeat_source == null)
@@ -83,19 +81,21 @@ public class BaseType extends Annotation {
   //*--------------*
   //* Feature: confidence
 
-  /** getter for confidence - gets 
+  /** getter for confidence - gets Annotators should provide a confidence score in this feature for every type.
+
    * @generated */
-  public double getConfidence() {
+  public float getConfidence() {
     if (BaseType_Type.featOkTst && ((BaseType_Type)jcasType).casFeat_confidence == null)
       jcasType.jcas.throwFeatMissing("confidence", "model.troy.hw.BaseType");
-    return jcasType.ll_cas.ll_getDoubleValue(addr, ((BaseType_Type)jcasType).casFeatCode_confidence);}
+    return jcasType.ll_cas.ll_getFloatValue(addr, ((BaseType_Type)jcasType).casFeatCode_confidence);}
     
-  /** setter for confidence - sets  
+  /** setter for confidence - sets Annotators should provide a confidence score in this feature for every type.
+ 
    * @generated */
-  public void setConfidence(double v) {
+  public void setConfidence(float v) {
     if (BaseType_Type.featOkTst && ((BaseType_Type)jcasType).casFeat_confidence == null)
       jcasType.jcas.throwFeatMissing("confidence", "model.troy.hw.BaseType");
-    jcasType.ll_cas.ll_setDoubleValue(addr, ((BaseType_Type)jcasType).casFeatCode_confidence, v);}    
+    jcasType.ll_cas.ll_setFloatValue(addr, ((BaseType_Type)jcasType).casFeatCode_confidence, v);}    
   }
 
     

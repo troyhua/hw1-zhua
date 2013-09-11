@@ -13,9 +13,9 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * @generated */
-public class NGram_Type extends BaseType_Type {
+public class NGram_Type extends BaseAnnotationType_Type {
   /** @generated */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
@@ -44,39 +44,39 @@ public class NGram_Type extends BaseType_Type {
   public final static boolean featOkTst = JCasRegistry.getFeatOkTst("model.troy.hw.NGram");
  
   /** @generated */
-  final Feature casFeat_elements;
+  final Feature casFeat_tokenArray;
   /** @generated */
-  final int     casFeatCode_elements;
+  final int     casFeatCode_tokenArray;
   /** @generated */ 
-  public int getElements(int addr) {
-        if (featOkTst && casFeat_elements == null)
-      jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_elements);
+  public int getTokenArray(int addr) {
+        if (featOkTst && casFeat_tokenArray == null)
+      jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray);
   }
   /** @generated */    
-  public void setElements(int addr, int v) {
-        if (featOkTst && casFeat_elements == null)
-      jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
-    ll_cas.ll_setRefValue(addr, casFeatCode_elements, v);}
+  public void setTokenArray(int addr, int v) {
+        if (featOkTst && casFeat_tokenArray == null)
+      jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
+    ll_cas.ll_setRefValue(addr, casFeatCode_tokenArray, v);}
     
    /** @generated */
-  public int getElements(int addr, int i) {
-        if (featOkTst && casFeat_elements == null)
-      jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
+  public int getTokenArray(int addr, int i) {
+        if (featOkTst && casFeat_tokenArray == null)
+      jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
     if (lowLevelTypeChecks)
-      return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i, true);
-    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
-	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
+      return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i, true);
+    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i);
+  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i);
   }
    
   /** @generated */ 
-  public void setElements(int addr, int i, int v) {
-        if (featOkTst && casFeat_elements == null)
-      jcas.throwFeatMissing("elements", "model.troy.hw.NGram");
+  public void setTokenArray(int addr, int i, int v) {
+        if (featOkTst && casFeat_tokenArray == null)
+      jcas.throwFeatMissing("tokenArray", "model.troy.hw.NGram");
     if (lowLevelTypeChecks)
-      ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i, v, true);
-    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i);
-    ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_elements), i, v);
+      ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i, v, true);
+    jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i);
+    ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tokenArray), i, v);
   }
  
 
@@ -89,8 +89,8 @@ public class NGram_Type extends BaseType_Type {
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
-    casFeat_elements = jcas.getRequiredFeatureDE(casType, "elements", "uima.cas.FSArray", featOkTst);
-    casFeatCode_elements  = (null == casFeat_elements) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_elements).getCode();
+    casFeat_tokenArray = jcas.getRequiredFeatureDE(casType, "tokenArray", "uima.cas.FSArray", featOkTst);
+    casFeatCode_tokenArray  = (null == casFeat_tokenArray) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_tokenArray).getCode();
 
   }
 }

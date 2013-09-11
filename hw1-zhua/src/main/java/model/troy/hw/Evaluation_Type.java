@@ -12,8 +12,9 @@ import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** An evaluation component should take a ScoreScheme as input and output an Evaluation instance. This class contains the evaluation metric score and other parameters regarding different measurements. For other evaluation metrics, Evaluation class can be extended to add more metrics.
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * @generated */
 public class Evaluation_Type extends BaseType_Type {
   /** @generated */
@@ -78,6 +79,24 @@ public class Evaluation_Type extends BaseType_Type {
     ll_cas.ll_setDoubleValue(addr, casFeatCode_precision, v);}
     
   
+ 
+  /** @generated */
+  final Feature casFeat_rawScore;
+  /** @generated */
+  final int     casFeatCode_rawScore;
+  /** @generated */ 
+  public int getRawScore(int addr) {
+        if (featOkTst && casFeat_rawScore == null)
+      jcas.throwFeatMissing("rawScore", "model.troy.hw.Evaluation");
+    return ll_cas.ll_getRefValue(addr, casFeatCode_rawScore);
+  }
+  /** @generated */    
+  public void setRawScore(int addr, int v) {
+        if (featOkTst && casFeat_rawScore == null)
+      jcas.throwFeatMissing("rawScore", "model.troy.hw.Evaluation");
+    ll_cas.ll_setRefValue(addr, casFeatCode_rawScore, v);}
+    
+  
 
 
 
@@ -94,6 +113,10 @@ public class Evaluation_Type extends BaseType_Type {
  
     casFeat_precision = jcas.getRequiredFeatureDE(casType, "precision", "uima.cas.Double", featOkTst);
     casFeatCode_precision  = (null == casFeat_precision) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_precision).getCode();
+
+ 
+    casFeat_rawScore = jcas.getRequiredFeatureDE(casType, "rawScore", "model.troy.hw.ScoreScheme", featOkTst);
+    casFeatCode_rawScore  = (null == casFeat_rawScore) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_rawScore).getCode();
 
   }
 }

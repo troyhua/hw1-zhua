@@ -9,11 +9,12 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 
-/** 
- * Updated by JCasGen Sun Sep 08 13:03:09 EDT 2013
+/** Token should be the smallest unit of a document splitted by white space and punctuations.
+
+ * Updated by JCasGen Tue Sep 10 21:56:18 EDT 2013
  * XML source: /Users/troy/git/hw1-zhua/hw1-zhua/src/main/resources/hw1-zhua-typesystem.xml
  * @generated */
-public class Token extends BaseType {
+public class Token extends BaseAnnotationType {
   /** @generated
    * @ordered 
    */
